@@ -1,0 +1,9 @@
+= simple_form_for(resource) do |f|
+
+    = f.input :title
+    = f.input :subtitle
+    = f.input :content
+    = f.input :posted
+    
+    %div.form-actions#my-id
+        = f.button :submit

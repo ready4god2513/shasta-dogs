@@ -1,0 +1,24 @@
+!!!
+%html{:lang => "en"}
+    %head
+        %meta{:charset => "utf-8"}
+        %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+        %title= content_for?(:title) ? yield(:title) : "Shasta Dogs"
+        = csrf_meta_tags
+        = stylesheet_link_tag "application", :media => "all"
+    %body
+        .container-fluid
+            .content
+                .row-fluid
+                    .span12
+                        %div#main
+                            %div.row-fluid
+                                %div.span6.offset1
+                                    = yield
+                                %div.span4
+                                    %div#sidebar
+                                        SIDEBAR
+                                %div.span1
+                                
+            
+        = javascript_include_tag "application"

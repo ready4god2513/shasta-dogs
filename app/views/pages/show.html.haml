@@ -1,0 +1,5 @@
+%div.page-header
+    %h1
+        = resource.title
+        %small= resource.subtitle if resource.subtitle.present?
+%div#content= simple_format(resource.content).html_safe
