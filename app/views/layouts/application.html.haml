@@ -3,21 +3,32 @@
     %head
         %meta{:charset => "utf-8"}
         %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-        %title= content_for?(:title) ? yield(:title) : "Shasta Dogs"
+        %title= content_for?(:title) ? "#{yield(:title)} | Shasta Dogs" : "Shasta Dogs"
         = csrf_meta_tags
         = stylesheet_link_tag "application", :media => "all"
-    %body
+    %body{id: current_page?(root_path) ? "home" : "sub"}
         .container-fluid
             .content
+                .row-fluid
+                    .span12
+                        .navbar
+                            .navbar-inner
+                                = link_to "Shasta Dogs", root_path, class: "brand"
+                                %ul.nav
+                                    %li{class: controller_name.include?("page") ? "active" : ""}= link_to "Pages", pages_path
+                                    %li{class: controller_name.include?("post") ? "active" : ""}= link_to "Our Blog", posts_path
                 .row-fluid
                     .span12
                         %div#main
                             %div.row-fluid
                                 %div.span6.offset1
+                                    - flash.each do |name, msg|
+                                        %div{class: "alert alert-#{flash_class(name)}"}
+                                            = msg
                                     = yield
                                 %div.span4
                                     %div#sidebar
-                                        SIDEBAR
+                                        = render "sidebar"
                                 %div.span1
                                 
             

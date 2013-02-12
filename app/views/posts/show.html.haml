@@ -1,0 +1,7 @@
+%div.page-header
+    %h1
+        = title(resource.title)
+    %small= "Posted #{time_ago_in_words(resource.created_at)} ago by Holly"
+%div#content= simple_format(resource.content).html_safe
+
+= link_to "Edit Post", edit_post_path(resource), class: "btn" if user_signed_in?

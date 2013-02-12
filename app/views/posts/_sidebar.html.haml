@@ -1,0 +1,6 @@
+= link_to "New Post", new_post_path, class: "btn" if user_signed_in?
+
+%h3 Recent Posts
+%ul{class: "nav nav-pills nav-stacked"}
+    - Post.active.recent.each do |post|
+        %li= link_to post.title, post

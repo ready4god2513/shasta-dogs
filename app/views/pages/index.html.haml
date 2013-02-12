@@ -1,1 +1,7 @@
-Welcome!
+%div.page-header
+    %h1 Pages
+    - collection.each do |page|
+        %h4= link_to page.title, page
+        %div#content= simple_format(page.content).html_safe
+        - if page != collection.last
+            %hr
