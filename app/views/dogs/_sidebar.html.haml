@@ -1,4 +1,4 @@
-= link_to "New Dog", new_post_path, class: "btn" if user_signed_in?
+= link_to "New Dog", new_dog_path, class: "btn" if user_signed_in?
 
 - if Dog.past.any?
   %h3 Recent Featured Dogs

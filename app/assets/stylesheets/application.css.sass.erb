@@ -1,13 +1,10 @@
 @import "_imports"
 
-body#home
-    background: url(<%= asset_path("background.jpg") %>) no-repeat center center
-    -webkit-background-size: cover
-    -moz-background-size: cover
-    -o-background-size: cover
-    background-size: cover
+body
+  background: url("<%= asset_path("body.jpg") %>") 50% 0 repeat-x
+  min-height: 1000px
     
-body#sub
-    background: url("http://subtlepatterns.com/patterns/ravenna.png") repeat
-#main
-    background: rgba(255, 255, 255, 0.1)
+html
+  background: url("<%= asset_path("html.jpg") %>")
+  width: 100%
+  overflow-x: hidden
