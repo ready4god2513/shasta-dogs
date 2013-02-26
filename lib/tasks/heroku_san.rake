@@ -9,7 +9,7 @@ class MyStrategy < HerokuSan::Deploy::Base
 
     super
 
-    @stage.run('rake db:reload')
+    @stage.run('rake db:migrate')
 
     Rake::Task['heroku:maintenance_off'].invoke
     puts "Maintenance mode disabled."
