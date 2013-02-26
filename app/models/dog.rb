@@ -29,10 +29,9 @@ class Dog < ActiveRecord::Base
     [res, 1.day.ago.to_date].max
   end
   
-  # Find the featured dog of the day.  If there isn't a featured dog
-  # let's return a new instance of the dog.
+  
   def self.featured
-    Dog.where{featured_day.eq my{Date.today}}.limit(1).first || Dog.new
+    Dog.where{featured_day.eq my{Date.today}}.limit(1).first
   end
   
   

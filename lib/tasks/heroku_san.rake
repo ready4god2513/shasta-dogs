@@ -9,11 +9,7 @@ class MyStrategy < HerokuSan::Deploy::Base
 
     super
 
-    if %w[alpha beta].include? @stage.name
-      @stage.run('rake db:reload')
-    else
-      @stage.run('rake db:migrate')
-    end
+    @stage.run('rake db:reload')
 
     Rake::Task['heroku:maintenance_off'].invoke
     puts "Maintenance mode disabled."
