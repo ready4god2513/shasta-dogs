@@ -24,6 +24,7 @@ gem "readable_message"
 gem "forgery"
 gem "carrierwave"
 gem "fog"
+gem "mini_magick"
 
 # Gems used only for assets and not required
 # in production environments by default.

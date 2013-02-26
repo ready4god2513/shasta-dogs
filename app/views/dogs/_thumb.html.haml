@@ -1,0 +1,4 @@
+%div.span6
+  = image_tag(dog.avatar, class: "img-polaroid img-rounded")
+  %p= link_to dog.headline, dog
+  %p.small= "Featured #{dog.featured_day.strftime("%A, %B %d, %Y")}"

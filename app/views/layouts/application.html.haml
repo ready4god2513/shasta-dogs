@@ -17,6 +17,7 @@
                                 %ul.nav
                                     %li{class: controller_name.include?("page") ? "active" : ""}= link_to "Pages", pages_path
                                     %li{class: controller_name.include?("post") ? "active" : ""}= link_to "Our Blog", posts_path
+                                    %li{class: controller_name.include?("dog") ? "active" : ""}= link_to "Featured Dogs", dogs_path
                 .row-fluid
                     .span12
                         %div#main

@@ -1,5 +1,5 @@
 %div.post-header
-    %h1 Shasta Dogs Blog
+    %h1= title("Shasta Dogs Blog")
     - collection.each do |post|
         %h3= link_to post.title, post
         %small= "Posted #{time_ago_in_words(post.created_at)} ago by Holly"

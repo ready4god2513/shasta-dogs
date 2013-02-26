@@ -1,0 +1,9 @@
+= link_to "New Dog", new_post_path, class: "btn" if user_signed_in?
+
+- if Dog.past.any?
+  %h3 Recent Featured Dogs
+  %ul{class: "nav nav-pills nav-stacked"}
+    - Dog.past.each do |dog|
+      %li
+        = image_tag(dog.avatar.thumb,  class: "img-polaroid img-rounded")
+        = link_to dog.headline, dog
