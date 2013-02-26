@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Avatar:
+  = @dog.avatar
+%p
+  %b Headline:
+  = @dog.headline
+%p
+  %b Information:
+  = @dog.information
+
+= link_to 'Edit', edit_dog_path(@dog)
+\|
+= link_to 'Back', dogs_path
