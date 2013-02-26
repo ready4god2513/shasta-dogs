@@ -1,2 +1,3 @@
-%h3 Featured Dog of the Day
-= render "dogs/thumb", dog: Dog.featured
+- if Dog.featured.present?
+  %h3 Featured Dog of the Day
+  = render "dogs/thumb", dog: Dog.featured
