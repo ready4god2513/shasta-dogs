@@ -1,10 +1,32 @@
 @import "_imports"
 
 body
-  background: url("<%= asset_path("body.jpg") %>") 50% 0 repeat-x
-  min-height: 1000px
+  background: url("<%= asset_path("headerpineneedle.png") %>") repeat-x top left, url("<%= asset_path("inner-bg.png") %>") top repeat-x
+  min-height: 800px
     
 html
-  background: url("<%= asset_path("html.jpg") %>")
+  background: url("<%= asset_path("html.png") %>")
   width: 100%
   overflow-x: hidden
+  
+#content
+  padding: 10px
+  
+h1, h2, h3, h4
+  color: $white
+  text-shadow: 1px 1px 4px $black
+  
+ul#main-nav
+  display: block
+  margin: 0 auto
+  text-align: center
+  
+  li
+    display: inline-block
+    margin: 10px
+    
+    img
+      width: 130px
+      
+#home-content
+  margin-top: 80px

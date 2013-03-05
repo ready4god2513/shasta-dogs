@@ -15,4 +15,9 @@ module ApplicationHelper
     end
   end
   
+  
+  def show_page(page)
+    Page.find_by_slug(page.to_s) || Page.new
+  end
+  
 end

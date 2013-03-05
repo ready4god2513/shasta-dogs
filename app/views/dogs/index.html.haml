@@ -1,4 +1,9 @@
 %div.post-header
   %h1= title("Featured Dogs")
-- collection.each do |dog|
-  = render "thumb", dog: dog
+%ul.thumbnails
+  - collection.each do |dog|
+    %li.span4
+      %div.thumbnail
+        = image_tag(dog.avatar)
+        %p= link_to dog.headline, dog
+        %p.small= "Featured #{dog.featured_day.strftime("%A, %B %d, %Y")}"

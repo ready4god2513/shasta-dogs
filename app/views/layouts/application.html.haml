@@ -7,30 +7,35 @@
         = csrf_meta_tags
         = stylesheet_link_tag "application", :media => "all"
     %body{id: current_page?(root_path) ? "home" : "sub"}
-        .container-fluid
+        .container
             .content
                 .row-fluid
                     .span12
-                        .navbar
-                            .navbar-inner
-                                = link_to "Shasta Dogs", root_path, class: "brand"
-                                %ul.nav
-                                    %li{class: controller_name.include?("page") ? "active" : ""}= link_to "Pages", pages_path
-                                    %li{class: controller_name.include?("post") ? "active" : ""}= link_to "Our Blog", posts_path
-                                    %li{class: controller_name.include?("dog") ? "active" : ""}= link_to "Featured Dogs", dogs_path
+                        %ul#main-nav
+                            %li= link_to image_tag("ovaldog.png"), root_path
+                            %li= link_to image_tag("dogblog.png"), posts_path
+                            %li= link_to image_tag("localservices.png"), show_page("services")
+                            %li= link_to image_tag("training.png"), show_page("training")
+                            %li= link_to image_tag("dogsports.png"), show_page("dog-sports")
+                            %li= link_to image_tag("events.png"), show_page("events")
+                            %li= link_to image_tag("places.png"), show_page("places-to-go")
+                                    
                 .row-fluid
                     .span12
                         %div#main
                             %div.row-fluid
-                                %div.span6.offset1
-                                    - flash.each do |name, msg|
-                                        %div{class: "alert alert-#{flash_class(name)}"}
-                                            = msg
-                                    = yield
-                                %div.span4
-                                    %div#sidebar
-                                        = render "sidebar"
-                                %div.span1
+                                - if current_page?(root_path)
+                                    %div.span12
+                                        = yield
+                                - else
+                                    %div.span8
+                                        - flash.each do |name, msg|
+                                            %div{class: "alert alert-#{flash_class(name)}"}
+                                                = msg
+                                        = yield
+                                    %div.span4
+                                        %div#sidebar
+                                            = render "sidebar"
                                 
             
         = javascript_include_tag "application"
