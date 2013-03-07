@@ -5,6 +5,8 @@ class CreatePages < ActiveRecord::Migration
       t.string :title
       t.string :subtitle
       t.text :content
+      t.text :sidebar
+      t.integer :parent_id
       t.boolean :posted
       t.string :slug
 

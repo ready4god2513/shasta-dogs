@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226033205) do
+ActiveRecord::Schema.define(:version => 20130307184050) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "dogs", :force => true do |t|
     t.string   "avatar"
@@ -27,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20130226033205) do
     t.string   "title"
     t.string   "subtitle"
     t.text     "content"
+    t.text     "sidebar"
+    t.integer  "parent_id"
     t.boolean  "posted"
     t.string   "slug"
     t.datetime "created_at", :null => false
@@ -36,11 +45,15 @@ ActiveRecord::Schema.define(:version => 20130226033205) do
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "content"
+    t.text     "synopsis"
     t.boolean  "posted"
     t.string   "slug"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "category_id"
   end
+
+  add_index "posts", ["category_id"], :name => "index_posts_on_category_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
