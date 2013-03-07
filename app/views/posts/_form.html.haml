@@ -1,8 +1,10 @@
 = simple_form_for(resource) do |f|
 
     = f.input :title, input_html: {class: "span10"}
-    = f.input :content, input_html: {class: "span10"}
+    = f.input :content, input_html: {class: "span10 redactor"}
+    = f.input :synopsis, input_html: {class: "span10 redactor"}
     = f.input :posted
+    = f.association :category
     
     %div.form-actions#my-id
         = f.button :submit
