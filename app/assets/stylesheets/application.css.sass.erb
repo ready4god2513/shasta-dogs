@@ -1,13 +1,14 @@
 @import "_imports"
 
 body
-  background: url(<%= asset_path("headerpineneedle.png") %>) repeat-x top left, url(<%= asset_path("inner-bg.png") %>) top repeat-x
+  // background: url(<%= asset_path("headerpineneedle.png") %>) repeat-x top left, url(<%= asset_path("inner-bg.png") %>) top repeat-x
+  background-image: url(http://biscuitsspace.files.wordpress.com/2013/02/img_1724-3-lady.jpg)
+  background-position: top right
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
   min-height: 800px
-    
-html
-  background: url(<%= asset_path("html.png") %>)
-  width: 100%
-  overflow-x: hidden
   
 #content
   padding: 10px
@@ -16,21 +17,38 @@ html
   height: 300px
   
 h1, h2, h3, h4
-  color: $white
-  text-shadow: 1px 1px 4px $black
+  color: $grayDark
+  font-family: "open sans condensed"
+  text-shadow: 1px 1px 1px $grayLight
   text-transform: capitalize
   
 ul#main-nav
   display: block
   margin: 0 auto
-  text-align: center
   
   li
     display: inline-block
     margin: 10px
     
+    a
+      color: #fff
+    
     img
-      width: 130px
+      width: 150px
       
-#home-content
-  margin-top: 80px
+#main
+  background: $white
+  margin-bottom: 50px
+  padding: 20px
+  
+  img
+    display: inline
+    margin: 10px
+    max-width: 200px
+    
+  #sidebar
+    h3
+      background: url(http://anniepaulose.files.wordpress.com/2011/01/dogpawprints-vlv-2.gif) no-repeat left
+      background-size: 20px 20px
+      padding-left: 25px
+      

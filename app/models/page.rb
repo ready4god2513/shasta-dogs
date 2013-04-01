@@ -1,6 +1,6 @@
 class Page < ActiveRecord::Base
 
-  attr_accessible :title, :subtitle, :content, :posted
+  attr_accessible :title, :subtitle, :content, :posted, :sidebar, :parent_id
   validates_presence_of :title, :content
 
   extend FriendlyId

@@ -1,5 +1,6 @@
 = link_to "New Page", new_page_path, class: "btn" if user_signed_in?
 
+%h3 More Resources
 %ul{class: "nav nav-pills nav-stacked"}
     - Page.active.each do |page|
         %li= link_to page.title, page

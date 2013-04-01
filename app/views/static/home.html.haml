@@ -1,14 +1,2 @@
 %div#home-content
-    %div.row-fluid
-        %div.span7
-            = render "dogs/featured"
-        %div.span4.offset1
-            %h3 Recent Dog Blog
-            - Post.recent.limit(2).each do |post|
-                %div.row-fluid
-                    %div.span4= image_tag("colliebox.png")
-                    %div.span8
-                        %h5
-                            = link_to post.title, post
-                            %br
-                            %small= "Posted #{time_ago_in_words(post.created_at)} ago"
+    

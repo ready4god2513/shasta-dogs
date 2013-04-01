@@ -2,6 +2,6 @@
     %h1
         = title(resource.title)
         %small= title(resource.subtitle) if resource.subtitle.present?
-%div#content= simple_format(resource.content).html_safe
+%div#content= resource.content.html_safe
 
 = link_to "Edit Post", edit_page_path(resource), class: "btn" if user_signed_in?
