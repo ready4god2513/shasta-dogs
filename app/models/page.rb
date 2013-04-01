@@ -13,5 +13,15 @@ class Page < ActiveRecord::Base
   scope :active, lambda {
     where{posted.eq true}
   }
+  
+  default_scope order: "title ASC"
+  
+  def title
+    read_attribute(:title).try(:titleize)
+  end
+  
+  def subtitle
+    read_attribute(:subtitle).try(:titleize)
+  end
 
 end

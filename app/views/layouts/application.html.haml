@@ -14,11 +14,8 @@
                         %ul#main-nav
                             %li= link_to image_tag("ovaldog.png"), root_path
                             %li= link_to "Dog Blog", posts_path
-                            %li= link_to "Services", show_page("services")
-                            %li= link_to "Training", show_page("training")
-                            %li= link_to "Dog Sports", show_page("dog-sports")
-                            %li= link_to "Events", show_page("events")
-                            %li= link_to "Places to Go", show_page("places-to-go")
+                            - Page.where{show_in_navigation.eq true}.all.each do |page|
+                                %li= link_to page.title.titleize, page
                                     
                 .row-fluid
                     .span12

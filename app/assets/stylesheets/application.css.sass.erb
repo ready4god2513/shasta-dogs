@@ -16,11 +16,13 @@ body
 .redactor_text
   height: 300px
   
-h1, h2, h3, h4
-  color: $grayDark
+h1, h2, h3, h4, h5, h6
+  color: $tealDark
   font-family: "open sans condensed"
-  text-shadow: 1px 1px 1px $grayLight
-  text-transform: capitalize
+  text-transform: uppercase
+  
+  small
+    color: $gray
   
 ul#main-nav
   display: block
@@ -28,16 +30,25 @@ ul#main-nav
   
   li
     display: inline-block
+    font-size: 1.4em
+    font-family: "open sans condensed"
+    font-weight: 200
     margin: 10px
+    text-transform: uppercase
     
     a
       color: #fff
+      &:hover
+        color: $tealDark
     
     img
       width: 150px
       
 #main
   background: $white
+  border: 4px solid $tealDark
+  border-left: none
+  border-right: none
   margin-bottom: 50px
   padding: 20px
   
