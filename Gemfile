@@ -27,6 +27,7 @@ gem "fog"
 gem "mini_magick"
 gem "redactor-rails"
 gem "acts_as_tree"
+gem "seed-fu"
 
 # Gems used only for assets and not required
 # in production environments by default.
