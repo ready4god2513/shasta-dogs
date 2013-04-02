@@ -15,9 +15,8 @@ module ApplicationHelper
     end
   end
   
-  
-  def show_page(page)
-    Page.find_by_slug(page.to_s) || Page.new
+  def home?
+    current_page?(root_path)
   end
   
 end

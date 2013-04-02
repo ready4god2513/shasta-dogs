@@ -8,7 +8,11 @@
     %link{:href => asset_path("favicon.ico"), :rel => "icon", :type => "image/x-icon"}
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
-  %body{id: current_page?(root_path) ? "home" : "sub"}
+    - if home? && @dog.present?
+      :sass
+        body
+          background-image: url("#{@dog.avatar.url}")
+  %body{id: home? ? "home" : "sub"}
     .container
       .content
         .row-fluid
@@ -19,26 +23,37 @@
               - Page.where{show_in_navigation.eq true}.all.each do |page|
                 %li= link_to page.title.titleize, page
                   
-        .row-fluid
-          .span12
-            %div#main
+        - if home?
+          - if @dog.present?
+            %div#dog-of-the-day
               %div.row-fluid
-                - if current_page?(root_path)
-                  %div.span12
-                    = yield
-                - else
-                  %div.span8
-                    - flash.each do |name, msg|
-                      %div{class: "alert alert-#{flash_class(name)}"}
-                        = msg
-                    = yield
-                  %div.span4
-                    %div#sidebar
-                      = render "sidebar"
-            %footer
-              %ul#footer-nav
-                %li= "&copy #{Date.today.year} Shasta Dogs".html_safe
-                %li= link_to "Shasta Dogs on Facebook", "https://www.facebook.com/ShastaDogs"
-                %li= link_to "Contact Us", "mailto:shastadogswebmaster@gmail.com"
+                %div.span12
+                  %h3
+                    = @dog.headline
+                    %small
+                      Dog of the Day
+                  %p= @dog.information
+        - else
+          .row-fluid
+            .span12
+              %div#main
+                %div.row-fluid
+                  - if current_page?(root_path)
+                    %div.span12
+                      = yield
+                  - else
+                    %div.span8
+                      - flash.each do |name, msg|
+                        %div{class: "alert alert-#{flash_class(name)}"}
+                          = msg
+                      = yield
+                    %div.span4
+                      %div#sidebar
+                        = render "sidebar"
+              %footer
+                %ul#footer-nav
+                  %li= "&copy #{Date.today.year} Shasta Dogs".html_safe
+                  %li= link_to "Shasta Dogs on Facebook", "https://www.facebook.com/ShastaDogs"
+                  %li= link_to "Contact Us", "mailto:shastadogswebmaster@gmail.com"
       
     = javascript_include_tag "application"

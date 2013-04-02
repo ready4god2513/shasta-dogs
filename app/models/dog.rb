@@ -11,6 +11,8 @@ class Dog < ActiveRecord::Base
   extend FriendlyId
   friendly_id :headline, use: :slugged
   
+  default_scope order: "featured_day DESC"
+  
   scope :past_including_today, lambda {
     where{featured_day.lteq my{Date.today}}.order("featured_day DESC")
   }
@@ -25,13 +27,13 @@ class Dog < ActiveRecord::Base
   # Let's return the greater of the two dates
   def self.last_taken_date
     return 1.day.ago unless Dog.any?
-    res = Dog.order("featured_day DESC").limit(1).pluck(:featured_day).first
+    res = Dog.order("featured_day DESC").limit(1).pluck(:featured_day).try(:first)
     [res, 1.day.ago.to_date].max
   end
   
   
   def self.featured
-    Dog.where{featured_day.eq my{Date.today}}.limit(1).first
+    Dog.where{featured_day.lte my{Date.today}}.limit(1).try(:first)
   end
   
   

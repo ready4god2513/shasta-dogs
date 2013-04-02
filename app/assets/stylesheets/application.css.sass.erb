@@ -2,12 +2,13 @@
 
 body
   // background: url(<%= asset_path("headerpineneedle.png") %>) repeat-x top left, url(<%= asset_path("inner-bg.png") %>) top repeat-x
-  background-image: url(<%= asset_path("img_1724-3-lady.jpg") %>)
-  background-position: top right
+  background: url(<%= asset_path("img_1724-3-lady.jpg") %>) no-repeat center center fixed
   -webkit-background-size: cover
   -moz-background-size: cover
   -o-background-size: cover
   background-size: cover
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%= asset_path("img_1724-3-lady.jpg") %>', sizingMethod='scale')
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%= asset_path("img_1724-3-lady.jpg") %>, sizingMethod='scale')"
   margin-bottom: 50px
   
 #content
@@ -23,6 +24,25 @@ h1, h2, h3, h4, h5, h6
   
   small
     color: $gray
+    
+#home
+  #dog-of-the-day
+    position: absolute
+    bottom: 0
+    left: 0
+    background: rgba(255, 255, 255, 0.7)
+    border-top: 4px solid $tealDark
+    padding: 0 10px
+    width: 100%
+    
+  ul#main-nav
+    li
+      a
+        background: rgba(255, 255, 255, 0.3)
+        color: $grayDark
+      &:first-child
+        a
+          background: none
   
 ul#main-nav, #footer-nav
   display: block
@@ -33,11 +53,11 @@ ul#main-nav, #footer-nav
     font-size: 1.4em
     font-family: "open sans condensed"
     font-weight: 200
-    margin: 10px
     text-transform: uppercase
     
     a
       color: #fff
+      padding: 10px
       &:hover
         color: $tealDark
     
