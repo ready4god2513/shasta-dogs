@@ -4,6 +4,8 @@
     %meta{:charset => "utf-8"}
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %title= content_for?(:title) ? "#{yield(:title)} | Shasta Dogs" : "Shasta Dogs"
+    %link{:href => asset_path("favicon.ico"), :rel => "shortcut icon", :type => "image/x-icon"}
+    %link{:href => asset_path("favicon.ico"), :rel => "icon", :type => "image/x-icon"}
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
   %body{id: current_page?(root_path) ? "home" : "sub"}
