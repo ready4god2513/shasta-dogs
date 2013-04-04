@@ -38,8 +38,11 @@
             .span12
               %div#main
                 %div.row-fluid
-                  - if current_page?(root_path)
+                  - if current_page?(root_path) || (@page.present? && @page.full_page_width)
                     %div.span12
+                      - flash.each do |name, msg|
+                        %div{class: "alert alert-#{flash_class(name)}"}
+                          = msg
                       = yield
                   - else
                     %div.span8

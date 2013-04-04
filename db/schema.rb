@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401230330) do
+ActiveRecord::Schema.define(:version => 20130404211303) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130401230330) do
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
     t.boolean  "show_in_navigation", :default => false
+    t.boolean  "full_page_width",    :default => false
   end
 
   add_index "pages", ["show_in_navigation"], :name => "index_pages_on_show_in_navigation"
