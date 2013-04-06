@@ -70,17 +70,34 @@ ul#main-nav, #footer-nav
   border-left: none
   border-right: none
   padding: 20px
-  
+
   img
     display: inline
     margin: 10px
-    max-width: 200px
+    max-width: 350px
+
+  #myCarousel
+    .item
+      height: 500px
+      img
+        margin: 0
+        max-height: 500px
+        max-width: 100%
+        width: 100%
+      .carousel-caption
+        background: rgba(0, 0, 0, 0.9)
+        color: #fff
+
+  .redactor_text
+    border: 1px solid #e8e8e8
+    margin-bottom: 20px !important
+    padding-bottom: 10px !important
     
-    #content
-      a
-        color: $teal !important
-        &:visted
-          color: $blue !important
+  #content
+    a
+      color: $teal !important
+      &:visted
+        color: $blue !important
     
   #sidebar
     h3

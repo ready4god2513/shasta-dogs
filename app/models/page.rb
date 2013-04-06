@@ -1,6 +1,11 @@
 class Page < ActiveRecord::Base
 
-  attr_accessible :title, :subtitle, :content, :posted, :sidebar, :parent_id, :show_in_navigation, :full_page_width
+  has_many :images, as: :imageable
+
+  attr_accessible :title, :subtitle, :content, :posted, :sidebar, 
+    :parent_id, :show_in_navigation, :full_page_width, :images_attributes
+
+  accepts_nested_attributes_for :images, :reject_if => :all_blank, :allow_destroy => true
   validates_presence_of :title, :content
 
   extend FriendlyId

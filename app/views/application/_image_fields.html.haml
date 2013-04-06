@@ -1,0 +1,4 @@
+.nested-fields.well
+  = f.input :avatar, label: "Image", as: :file
+  = f.input :description, label: "Short Description"
+  = link_to_remove_association "remove image", f, class: "btn"

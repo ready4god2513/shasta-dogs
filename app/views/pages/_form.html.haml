@@ -1,13 +1,25 @@
-= simple_form_for(resource) do |f|
+= simple_form_for(resource, :html => { :multipart => true }) do |f|
 
-    = f.input :title, input_html: {class: "span10"}
-    = f.input :subtitle, input_html: {class: "span10"}
-    = f.input :content, input_html: {class: "span10 redactor"}
-    = f.input :sidebar, input_html: {class: "span10 redactor"}
-    = f.input :posted
-    = f.input :show_in_navigation
-    = f.input :full_page_width
-    = f.association :parent
-    
-    %div.form-actions#my-id
-        = f.button :submit
+  = f.input :title, input_html: {class: "span10"}
+  = f.input :subtitle, input_html: {class: "span10"}
+  = f.input :content, input_html: {class: "span10 redactor"}
+
+  %images
+    %hr
+    %h4 Gallery Images
+    = f.simple_fields_for :images do |images|
+      = render "image_fields", f: images
+    .links
+      = link_to_add_association "Add Image", f, :images, class: "btn"
+      %br
+      %br
+
+  .well
+    %h4 Publishing Options
+    = f.input :posted, as: :select
+    = f.input :show_in_navigation, as: :select
+    = f.input :full_page_width, as: :select
+  = f.association :parent
+  
+  %div.form-actions#my-id
+    = f.button :submit
