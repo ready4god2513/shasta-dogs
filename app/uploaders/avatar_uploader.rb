@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class AvatarUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
@@ -22,6 +20,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   
   version :thumb do
     process :resize_to_fit => [200, 200]
+  end
+
+  version :slideshow do
+    process :resize_and_pad => [725, 450, "#111", "Center"]
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
