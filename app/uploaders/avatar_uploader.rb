@@ -23,7 +23,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :slideshow do
-    process :resize_and_pad => [725, 450, "#111", "Center"]
+    process :resize_and_pad => [725, 500, "#111", "Center"]
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
