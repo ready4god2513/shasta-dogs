@@ -9,7 +9,7 @@
       .carousel-inner
         - resource.images.each_with_index do |image, index|
           .item{class: index == 0 ? "active" : ""}
-            = image_tag(image.avatar.url)
+            = image_tag(image.avatar.slideshow.url)
             .carousel-caption
               = image.description
       %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"} ‹
