@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   has_many :images, as: :imageable
   
   attr_accessible :title, :subtitle, :content, :posted, 
-    :category, :category_id, :images_attributes
+    :category, :category_id, :images_attributes, :synopsis
   accepts_nested_attributes_for :images, :reject_if => :all_blank, :allow_destroy => true
   
   validates_presence_of :title, :content
