@@ -19,7 +19,8 @@
     = f.input :posted, as: :select
     = f.input :show_in_navigation, as: :select
     = f.input :full_page_width, as: :select
-  = f.association :parent
+    - unless resource.children.any?
+      = f.association :parent, collection: Page.roots.keep_if { |page| page != resource }
   
   %div.form-actions#my-id
     = f.button :submit

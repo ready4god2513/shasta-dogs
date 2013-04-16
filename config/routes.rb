@@ -2,13 +2,23 @@ ShastaDogs::Application.routes.draw do
 
   mount RedactorRails::Engine => '/redactor_rails'
 
-  resources :categories
-
-
+  
   devise_for :users
-  resources :dogs
-  resources :posts
-  resources :pages
+
+
+  unauthenticated do
+    resources :categories, only: [:show]
+    resources :dogs, only: [:show]
+    resources :posts, only: [:show]
+    resources :pages, only: [:show]
+  end
+
+  authenticated do
+    resources :categories
+    resources :dogs
+    resources :posts
+    resources :pages
+  end
   root to: "static#home"
   
 end
