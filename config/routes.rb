@@ -19,6 +19,8 @@ ShastaDogs::Application.routes.draw do
     resources :posts
     resources :pages
   end
+
   root to: "static#home"
+  match "*path" => redirect("/")
   
 end
