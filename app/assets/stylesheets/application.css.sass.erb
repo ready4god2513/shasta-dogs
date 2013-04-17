@@ -6,8 +6,8 @@ body
   -moz-background-size: cover
   -o-background-size: cover
   background-size: cover
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%= asset_path("img_1724-3-lady.jpg") %>', sizingMethod='scale')
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%= asset_path("img_1724-3-lady.jpg") %>, sizingMethod='scale')"
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%= asset_path("kuda.jpg") %>', sizingMethod='scale')
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%= asset_path("kuda.jpg") %>', sizingMethod='scale')"
   margin-bottom: 50px
   
 #content
@@ -34,14 +34,6 @@ h1, h2, h3, h4, h5, h6
     padding: 0 10px
     width: 100%
     
-  ul#main-nav
-    li
-      a
-        background: rgba(255, 255, 255, 0.3)
-        color: $grayDark
-      &:first-child
-        a
-          background: none
   
 ul#main-nav, #footer-nav
   display: block
@@ -55,10 +47,14 @@ ul#main-nav, #footer-nav
     text-transform: uppercase
     
     a
-      color: #fff
+      background: rgba(0, 0, 0, 0.4)
+      color: $white
       padding: 10px
       &:hover
         color: $tealDark
+    &:first-child
+      a
+        background: none
     
     img
       width: 150px
@@ -107,7 +103,4 @@ ul#main-nav, #footer-nav
 #footer-nav
   li
     display: inline-block
-    margin: 10px
-    
-    a
-      color: $grayDark
+    margin: 20px 10px

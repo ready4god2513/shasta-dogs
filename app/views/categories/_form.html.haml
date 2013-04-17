@@ -1,9 +1,8 @@
-= simple_form_for(@category) do |f|
+= simple_form_for(resource) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :name
-    = f.input :slug
 
   .form-actions
     = f.button :submit

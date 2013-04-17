@@ -5,11 +5,10 @@ ShastaDogs::Application.routes.draw do
   
   devise_for :users
 
-
   unauthenticated do
     resources :categories, only: [:show]
     resources :dogs, only: [:show]
-    resources :posts, only: [:show]
+    resources :posts, only: [:index, :show]
     resources :pages, only: [:show]
   end
 
