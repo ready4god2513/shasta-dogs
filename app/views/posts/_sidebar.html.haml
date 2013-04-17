@@ -1,4 +1,6 @@
-= link_to "New Post", new_post_path, class: "btn" if user_signed_in?
+- if user_signed_in?
+  = link_to "New Post", new_post_path, class: "btn"
+  = link_to "New Category", new_category_path, class: "btn"
 
 %h3 Recent Posts
 %ul{class: "nav nav-pills nav-stacked"}
