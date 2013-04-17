@@ -20,6 +20,7 @@ class Page < ActiveRecord::Base
   }
   
   default_scope order: "title ASC"
+  after_save :generate_sitemap
   
   def title
     read_attribute(:title).try(:titleize)
@@ -27,6 +28,10 @@ class Page < ActiveRecord::Base
   
   def subtitle
     read_attribute(:subtitle).try(:titleize)
+  end
+
+  def generate_sitemap
+    SiteMap.generate
   end
 
 end

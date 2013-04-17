@@ -22,5 +22,11 @@ class Post < ActiveRecord::Base
   }
 
   default_scope order: "created_at DESC"
+
+  after_save :generate_sitemap
+
+  def generate_sitemap
+    SiteMap.generate
+  end
   
 end

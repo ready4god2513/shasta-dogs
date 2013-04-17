@@ -246,6 +246,8 @@ GEM
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    sitemap_generator (3.4)
+      builder
     spork (1.0.0rc3)
     spork-rails (3.2.1)
       rails (>= 3.0.0, < 3.3.0)
@@ -335,6 +337,7 @@ DEPENDENCIES
   seed-fu
   shoulda-matchers
   simple_form
+  sitemap_generator
   spork-rails
   sql-logging
   squeel
