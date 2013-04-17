@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
   
   private
   
-  def redirect_to_home
+  def redirect_to_home(exception = "")
+    puts exception.inspect
     redirect_to root_path
   end
   
