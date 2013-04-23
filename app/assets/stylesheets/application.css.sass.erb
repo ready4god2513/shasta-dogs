@@ -35,29 +35,25 @@ h1, h2, h3, h4, h5, h6
     width: 100%
     
   
-ul#main-nav, #footer-nav
-  display: block
-  margin: 0 auto
-  
-  li
-    display: inline-block
-    font-size: 1.4em
-    font-family: "open sans condensed"
-    font-weight: 200
-    text-transform: uppercase
+.navbar-inner
+  ul
+    li
+      display: inline-block
+      font-size: 1.3em
+      font-family: "open sans condensed"
+      font-weight: 200
+      margin: 20px 5px
+      text-transform: uppercase
+      
+      a, a:hover
+        background: rgba(0, 0, 0, 0.4) !important
+        color: $white
+        padding: 10px !important
+        &:hover
+          color: $tealDark
     
-    a
-      background: rgba(0, 0, 0, 0.4)
-      color: $white
-      padding: 10px
-      &:hover
-        color: $tealDark
-    &:first-child
-      a
-        background: none
-    
-    img
-      width: 150px
+  img
+    width: 120px
       
 #main
   background: $white
