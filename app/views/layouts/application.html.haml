@@ -1,27 +1,23 @@
 !!!
-%html{:lang => "en"}
+%html{lang: "en"}
   %head
-    %meta{:charset => "utf-8"}
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-    %meta{:content => "syUQPYQsMFhrL4rCp2WCAINJ1csubtmQK6g31H2QVTg", :name => "google-site-verification"}/
+    %meta{charset: "utf-8"}
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+    %meta{content: "syUQPYQsMFhrL4rCp2WCAINJ1csubtmQK6g31H2QVTg", name: "google-site-verification"}/
     %title= content_for?(:title) ? "#{yield(:title)} | Shasta Dogs" : "Shasta Dogs"
-    %link{:href => asset_path("favicon.ico"), :rel => "shortcut icon", :type => "image/x-icon"}
-    %link{:href => asset_path("favicon.ico"), :rel => "icon", :type => "image/x-icon"}
-    %link{:href => current_url, :rel => "canonical"}/
-    %meta{:content => [yield(:title), "Shasta Dogs"].join(" - "), :property => "og:title"}/
-    %meta{:content => "website", :property => "og:type"}/
-    %meta{:content => current_url, :property => "og:url"}/
-    %meta{:content => asset_path("ovaldog.png"), :property => "og:image"}/
-    %meta{:content => "Shasta Dogs", :property => "og:site_name"}/
-    %meta{:content => "1439910669", :property => "fb:admins"}/
-    %meta{:content => "Encouraging responsible, active dog-ownership in Northern California.", :property => "og:description"}/
-    %meta{:class => "visible-phone", :content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %link{href: asset_path("favicon.ico"), rel: "shortcut icon", type: "image/x-icon"}
+    %link{href: asset_path("favicon.ico"), rel: "icon", type: "image/x-icon"}
+    %link{href: current_url, rel: "canonical"}/
+    %meta{content: [yield(:title), "Shasta Dogs"].join(" - "), property: "og:title"}/
+    %meta{content: "website", property: "og:type"}/
+    %meta{content: current_url, property: "og:url"}/
+    %meta{content: asset_path("ovaldog.png"), property: "og:image"}/
+    %meta{content: "Shasta Dogs", property: "og:site_name"}/
+    %meta{content: "1439910669", property: "fb:admins"}/
+    %meta{content: "Encouraging responsible, active dog-ownership in Northern California.", property: "og:description"}/
+    %meta{class: "visible-phone", content: "width=device-width, initial-scale=1.0", name: "viewport"}
     = csrf_meta_tags
-    = stylesheet_link_tag "application", :media => "all"
-    - if home? && @dog.present?
-      :sass
-        body
-          background-image: url("#{@dog.avatar.url}")
+    = stylesheet_link_tag "application", media: "all"
   %body{id: home? ? "home" : "sub"}
     .container
       .content
@@ -30,13 +26,11 @@
             .navbar
               .navbar-inner
                 .container
-                  / .btn-navbar is used as the toggle for collapsed navbar content
                   %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
                     %span.icon-bar
                     %span.icon-bar
                     %span.icon-bar
                   = link_to image_tag("ovaldog.png"), root_path, class: "brand"
-                  / Everything you want hidden at 940px or less, place within here
                   .nav-collapse.collapse
                     %ul.nav
                       %li= link_to "Dog Blog", posts_path
@@ -44,44 +38,33 @@
                         %li= link_to page.title.titleize, page
             
                   
-        - if home?
-          - if @dog.present?
-            %div#dog-of-the-day
+        .row-fluid
+          .span12
+            %div#main
               %div.row-fluid
-                %div.span12
-                  %h3
-                    = @dog.headline
-                    %small
-                      Dog of the Day
-                  %p= @dog.information
-        - else
-          .row-fluid
-            .span12
-              %div#main
-                %div.row-fluid
-                  - if current_page?(root_path) || (@page.present? && @page.full_page_width)
-                    %div.span12
-                      - flash.each do |name, msg|
-                        %div{class: "alert alert-#{flash_class(name)}"}
-                          = msg
-                      = yield
-                  - else
-                    %div.span8
-                      - flash.each do |name, msg|
-                        %div{class: "alert alert-#{flash_class(name)}"}
-                          = msg
-                      = yield
-                    %div.span4
-                      %div#sidebar
-                        = render "sidebar"
-              %footer
-                .navbar
-                  .navbar-inner
-                    = link_to image_tag("ovaldog.png"), root_path, class: "brand"
-                    / Everything you want hidden at 940px or less, place within here
-                    %ul.nav
-                      %li= link_to "Shasta Dogs on Facebook", "https://www.facebook.com/ShastaDogs"
-                      %li= link_to "Contact Us", "mailto:shastadogswebmaster@gmail.com"
+                - if current_page?(root_path) || (@page.present? && @page.full_page_width)
+                  %div.span12
+                    - flash.each do |name, msg|
+                      %div{class: "alert alert-#{flash_class(name)}"}
+                        = msg
+                    = yield
+                - else
+                  %div.span8
+                    - flash.each do |name, msg|
+                      %div{class: "alert alert-#{flash_class(name)}"}
+                        = msg
+                    = yield
+                  %div.span4
+                    %div#sidebar
+                      = render "sidebar"
+            %footer
+              .navbar
+                .navbar-inner
+                  = link_to image_tag("ovaldog.png"), root_path, class: "brand"
+                  %ul.nav
+                    %li= link_to "Shasta Dogs on Facebook", "https://www.facebook.com/ShastaDogs"
+                    %li= link_to "Contact Us", "mailto:shastadogswebmaster@gmail.com"
+          
                       
                 
       

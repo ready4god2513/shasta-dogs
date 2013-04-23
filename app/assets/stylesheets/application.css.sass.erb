@@ -1,13 +1,9 @@
 @import "_imports"
+$ie: true
 
 body
   background: url(<%= asset_path("kuda.jpg") %>) no-repeat center center fixed
-  -webkit-background-size: cover
-  -moz-background-size: cover
-  -o-background-size: cover
-  background-size: cover
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%= asset_path("kuda.jpg") %>', sizingMethod='scale')
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%= asset_path("kuda.jpg") %>', sizingMethod='scale')"
+  background-size: 100%
   margin-bottom: 50px
   
 #content
@@ -34,8 +30,11 @@ h1, h2, h3, h4, h5, h6
     padding: 0 10px
     width: 100%
     
-  
 .navbar-inner
+  background: none !important
+  border: none !important
+  @include box-shadow(0 0)
+
   ul
     li
       font-size: 1.3em
