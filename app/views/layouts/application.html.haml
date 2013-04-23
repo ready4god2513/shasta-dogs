@@ -7,10 +7,10 @@
     %title= content_for?(:title) ? "#{yield(:title)} | Shasta Dogs" : "Shasta Dogs"
     %link{:href => asset_path("favicon.ico"), :rel => "shortcut icon", :type => "image/x-icon"}
     %link{:href => asset_path("favicon.ico"), :rel => "icon", :type => "image/x-icon"}
-    %link{:href => request.fullpath, :rel => "canonical"}/
+    %link{:href => current_url, :rel => "canonical"}/
     %meta{:content => [yield(:title), "Shasta Dogs"].join(" - "), :property => "og:title"}/
     %meta{:content => "website", :property => "og:type"}/
-    %meta{:content => request.fullpath, :property => "og:url"}/
+    %meta{:content => current_url, :property => "og:url"}/
     %meta{:content => asset_path("ovaldog.png"), :property => "og:image"}/
     %meta{:content => "Shasta Dogs", :property => "og:site_name"}/
     %meta{:content => "1439910669", :property => "fb:admins"}/

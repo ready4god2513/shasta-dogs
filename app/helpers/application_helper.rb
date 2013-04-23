@@ -18,5 +18,9 @@ module ApplicationHelper
   def home?
     current_page?(root_path)
   end
+
+  def current_url
+    "http://#{request.host+request.fullpath}"
+  end
   
 end
