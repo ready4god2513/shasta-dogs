@@ -7,7 +7,7 @@
     %title= content_for?(:title) ? "#{yield(:title)} | Shasta Dogs" : "Shasta Dogs"
     %link{:href => asset_path("favicon.ico"), :rel => "shortcut icon", :type => "image/x-icon"}
     %link{:href => asset_path("favicon.ico"), :rel => "icon", :type => "image/x-icon"}
-    %meta{:content => [content_for(:title), "Shasta Dogs"].join(" - "), :property => "og:title"}/
+    %meta{:content => [yield(:title), "Shasta Dogs"].join(" - "), :property => "og:title"}/
     %meta{:content => "website", :property => "og:type"}/
     %meta{:content => root_url, :property => "og:url"}/
     %meta{:content => asset_path("ovaldog.png"), :property => "og:image"}/
@@ -76,18 +76,12 @@
               %footer
                 .navbar
                   .navbar-inner
-                    .container
-                      / .btn-navbar is used as the toggle for collapsed navbar content
-                      %a.btn.btn-navbar{"data-target" => ".nav-collapse-footer", "data-toggle" => "collapse"}
-                        %span.icon-bar
-                        %span.icon-bar
-                        %span.icon-bar
-                      = link_to image_tag("ovaldog.png"), root_path, class: "brand"
-                      / Everything you want hidden at 940px or less, place within here
-                      .nav-collapse-footer.collapse
-                        %ul.nav
-                          %li= link_to "Shasta Dogs on Facebook", "https://www.facebook.com/ShastaDogs"
-                          %li= link_to "Contact Us", "mailto:shastadogswebmaster@gmail.com"
+                    = link_to image_tag("ovaldog.png"), root_path, class: "brand"
+                    / Everything you want hidden at 940px or less, place within here
+                    %ul.nav
+                      %li= link_to "Shasta Dogs on Facebook", "https://www.facebook.com/ShastaDogs"
+                      %li= link_to "Contact Us", "mailto:shastadogswebmaster@gmail.com"
+                      
                 
       
     = javascript_include_tag "application"
