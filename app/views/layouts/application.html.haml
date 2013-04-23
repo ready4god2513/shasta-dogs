@@ -38,25 +38,46 @@
                         %li= link_to page.title.titleize, page
             
                   
-        .row-fluid
-          .span12
-            %div#main
-              %div.row-fluid
-                - if current_page?(root_path) || (@page.present? && @page.full_page_width)
-                  %div.span12
-                    - flash.each do |name, msg|
-                      %div{class: "alert alert-#{flash_class(name)}"}
-                        = msg
-                    = yield
-                - else
-                  %div.span8
-                    - flash.each do |name, msg|
-                      %div{class: "alert alert-#{flash_class(name)}"}
-                        = msg
-                    = yield
-                  %div.span4
-                    %div#sidebar
-                      = render "sidebar"
+        - if home?
+          %div.row-fluid
+            %div.span12
+              #main
+                %div.page-header
+                  %h1
+                    = title("Shasta Dogs")
+                    %small Encouraging responsible, active dog-ownership in Northern California.
+                = Page.find_by_slug("home").content.html_safe if Page.find_by_slug("home")
+                = link_to "Edit Page", edit_page_path(Page.find_by_slug("home")), class: "btn" if user_signed_in?
+                - if @dog.present?
+                  %h3
+                    = @dog.headline
+                    %small
+                      Dog of the Day
+                  .row-fluid
+                    .span4
+                      = image_tag(@dog.avatar.url)
+                    .span8
+                      %p= @dog.information
+        - else
+          .row-fluid
+            .span12
+              %div#main
+                %div.row-fluid
+                  - if current_page?(root_path) || (@page.present? && @page.full_page_width)
+                    %div.span12
+                      - flash.each do |name, msg|
+                        %div{class: "alert alert-#{flash_class(name)}"}
+                          = msg
+                      = yield
+                  - else
+                    %div.span8
+                      - flash.each do |name, msg|
+                        %div{class: "alert alert-#{flash_class(name)}"}
+                          = msg
+                      = yield
+                    %div.span4
+                      %div#sidebar
+                        = render "sidebar"
             %footer
               .navbar
                 .navbar-inner
