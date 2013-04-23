@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require redactor-rails
-//= require bootstrap-carousel
+//= require bootstrap-all
 //= require cocoon
 //= require_tree .
 
